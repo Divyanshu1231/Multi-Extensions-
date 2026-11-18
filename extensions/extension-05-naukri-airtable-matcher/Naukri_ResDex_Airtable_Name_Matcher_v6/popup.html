@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Naukri Name Matcher</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <div class="logo">N</div>
+    <div><h1>Naukri Name Matcher</h1><p>ResDex → Airtable CSV</p></div>
+  </header>
+
+  <section class="panel">
+    <h2>1. Upload Airtable CSV</h2>
+    <input id="csvFile" type="file" accept=".csv,text/csv">
+    <div class="row">
+      <label for="columnSelect">Candidate name column</label>
+      <select id="columnSelect" disabled><option value="">Upload a CSV first</option></select>
+    </div>
+    <p id="csvStatus" class="muted">Your CSV is processed locally in this browser.</p>
+  </section>
+
+  <section class="panel">
+    <h2>2. Collect Naukri names</h2>
+    <button id="collectBtn" class="primary">Collect names from this page</button>
+    <button id="scanBtn" class="secondary">Scan pages automatically</button>
+    <p class="muted">Open a Naukri ResDex search results page first. Automatic scanning clicks the site's Next-page control where detected.</p>
+    <div class="stats">
+      <div><strong id="scrapedCount">0</strong><span>Collected</span></div>
+      <div><strong id="pageCount">0</strong><span>Pages scanned</span></div>
+      <div><strong id="unmatchedCount">0</strong><span>Unmatched</span></div>
+    </div>
+    <div class="progress"><div id="progressBar"></div></div>
+    <p id="scanStatus" class="status">Ready.</p>
+  </section>
+
+  <section class="panel">
+    <h2>3. Match & export</h2>
+    <button id="matchBtn" class="primary">Match against Airtable CSV</button>
+    <button id="exportBtn" class="secondary" disabled>Export unmatched names CSV</button>
+    <button id="exportAllBtn" class="secondary" disabled>Export all collected names CSV</button>
+    <button id="clearBtn" class="danger">Clear collected names</button>
+    <p id="matchStatus" class="muted">Upload the CSV and collect names before matching.</p>
+  </section>
+
+  <footer>Names only • No data is sent to an external server</footer>
+  <script src="auth.js"></script>
+</body>
+</html>

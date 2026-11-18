@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Naukri ResDex Name Matcher \u2014 Exact Card Count",
+  "version": "6.0.0",
+  "description": "Collect only visible Naukri candidate-name links and preserve separate profiles even when names match.",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "downloads"
+  ],
+  "host_permissions": [
+    "https://resdex.naukri.com/*",
+    "https://*.naukri.com/*",
+    "https://central-extension-platform-api.onrender.com/*"
+  ],
+  "action": {
+    "default_title": "Naukri Name Matcher",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://resdex.naukri.com/*",
+        "https://*.naukri.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

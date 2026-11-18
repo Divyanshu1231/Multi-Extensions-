@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Shine Candidate Scraper + Airtable Matcher</title>
+<style>
+body{font-family:Arial,sans-serif;width:360px;margin:0;padding:16px;color:#1f2937}
+h2{margin:0 0 8px;font-size:18px}
+h3{font-size:13px;margin:14px 0 7px}
+p{font-size:12px;color:#6b7280;line-height:1.45}
+button{width:100%;border:0;border-radius:8px;padding:10px;margin:5px 0;cursor:pointer;font-weight:600}
+#start{background:#5969c9;color:white} #stop{background:#ef4444;color:white}
+#scraped{background:#16a34a;color:white} #match{background:#2563eb;color:white}
+#export{background:#059669;color:white} #clear{background:#e5e7eb;color:#111827}
+label{display:block;background:#f3f4f6;border:1px solid #ddd;border-radius:8px;padding:10px;font-size:12px}
+input[type=file]{width:100%;margin-top:7px}
+#status{margin-top:10px;background:#f3f4f6;border-radius:8px;padding:10px;font-size:12px;white-space:pre-wrap;line-height:1.45}
+.note{font-size:11px;color:#4b5563}
+</style>
+</head>
+<body>
+<h2>Shine + Airtable Matcher</h2>
+<p>Upload Airtable first. The extension scans names on Shine, skips names already in Airtable, and opens only unmatched candidate profiles to look for email and mobile.</p>
+
+<h3>1. Upload Airtable CSV (required)</h3>
+<label>
+Choose the CSV exported from Airtable
+<input id="airtableFile" type="file" accept=".csv,text/csv">
+</label>
+
+<h3>2. Scan, match and scrape contacts</h3>
+<button id="start">Start: Scan Names → Match → Unmatched Contacts</button>
+<button id="stop">Stop</button>
+
+<h3>3. Export</h3>
+<button id="scraped">Export Unmatched Contacts CSV</button>
+<button id="match">Check Matching Status</button>
+<button id="export">Export Unmatched CSV (with Match Result)</button>
+<button id="clear">Clear All Saved Data</button>
+
+<div id="status">Ready. Upload Airtable CSV first.</div>
+<p class="note">Matching uses exact normalized candidate names (case, punctuation, spaces and common titles ignored). Matched profiles are not opened. Missing email/mobile fields remain blank. Only candidates found on Shine are considered; Airtable-only rows are ignored.</p>
+<script src="auth.js"></script>
+</body>
+</html>

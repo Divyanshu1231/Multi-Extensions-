@@ -1,0 +1,26 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Resdex Email Extractor</title>
+<style>
+body{width:320px;padding:16px;font-family:Arial,sans-serif;color:#172033}h3{margin:0 0 12px}label{display:block;font-size:12px;color:#687386;margin:9px 0 5px}input,select{width:100%;box-sizing:border-box;padding:9px;font-size:12px;border:1px solid #d4d9e2;border-radius:7px}button{width:100%;padding:10px;margin-top:9px;border:0;border-radius:7px;font-weight:700;cursor:pointer}#start{background:#2563eb;color:#fff}#stop{background:#fee2e2;color:#991b1b}#export{background:#111827;color:#fff}#clear{background:#f3f4f6;color:#374151}#status{margin-top:12px;padding:9px;background:#f3f4f6;border-radius:7px;font-size:12px;line-height:1.45}.note{margin-top:10px;font-size:11px;color:#687386;line-height:1.4}
+</style></head><body>
+<h3>Resdex Email Extractor</h3>
+<label>Profiles from current page</label><input id="maxProfiles" type="number" min="1" value="40">
+<label>Page load wait after opening profile (ms)</label><input id="wait" type="number" min="500" value="1200">
+<label>Random wait between profiles (seconds): min / max</label>
+<div style="display:flex;gap:8px"><input id="minwait" type="number" min="1" value="12"><input id="maxwait" type="number" min="1" value="1200"></div>
+<label>Which profiles (triangle icon)</label>
+<select id="mode"><option value="both">Both icons — viewed by you + viewed by other</option><option value="you">Only "Profile viewed by you"</option><option value="other">Only "Profile viewed by other"</option><option value="all">All profiles (no icon filter)</option></select>
+<label>Admin email(s) to ignore (comma separated)</label><input id="ignore" type="text" value="rachna.srivastava@spaceconsultant.net">
+<label>Airtable CSV (candidates already in Airtable are skipped)</label>
+<input id="atfile" type="file" accept=".csv,text/csv">
+<select id="atcol" style="display:none;margin-top:6px"></select>
+<div id="atinfo" class="note" style="margin-top:6px">No Airtable list loaded.</div>
+<label style="display:flex;gap:6px;align-items:center"><input id="atuse" type="checkbox" checked style="width:auto"> Skip names found in Airtable, scrape only unmatched</label>
+<select id="atmode"><option value="normal">Match: Normal (same words in any order, extra initial/middle name OK)</option><option value="strict">Match: Strict (same words in any order only)</option></select>
+<button id="atclear" style="background:#f3f4f6;color:#374151">Remove Airtable list</button>
+<label style="display:flex;gap:6px;align-items:center"><input id="getphone" type="checkbox" checked style="width:auto"> Click "View phone number" &amp; scrape phone</label>
+<label style="display:flex;gap:6px;align-items:center"><input id="randdet" type="checkbox" checked style="width:auto"> Random optional details per profile (Name, Email, Phone, Location always saved)</label>
+<button id="start">Start — Open Unmatched Profiles & Extract</button><button id="stop">Stop</button><button id="export">Export Unmatched Candidate Mobile And Email CSV</button><button id="report" style="background:#374151;color:#fff">Export Match Report (Matched / Unmatched)</button><button id="clear">Clear Saved Results</button>
+<div id="status">Open the Resdex search-results page first.</div>
+<div class="note">Opens each (unmatched) candidate profile, clicks View phone number, extracts email + phone, closes the profile tab and continues. Matched Airtable candidates are skipped.</div>
+<script src="auth.js"></script></body></html>

@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Shine Recruiter Extractor + DoubleTick",
+  "version": "2.0.0",
+  "description": "Extract Shine candidate details and send approved DoubleTick WhatsApp templates.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://recruiter.shine.com/*",
+    "https://central-extension-platform-api.onrender.com/*"
+  ],
+  "action": {
+    "default_title": "Shine Recruiter Tool",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://recruiter.shine.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

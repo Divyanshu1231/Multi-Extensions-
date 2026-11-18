@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "CSV \u2192 DoubleTick Bulk WhatsApp",
+  "version": "1.1.0",
+  "description": "Upload candidate CSV, select multiple states and send a DoubleTick WhatsApp template to matching candidates.",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://*.workers.dev/*",
+    "https://central-extension-platform-api.onrender.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  }
+}

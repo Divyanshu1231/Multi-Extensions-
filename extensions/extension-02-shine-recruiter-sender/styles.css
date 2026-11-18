@@ -1,0 +1,252 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    width: 360px;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    background: #f5f6fa;
+
+    color: #222;
+}
+
+.container {
+    padding: 18px;
+}
+
+h1 {
+    margin: 0 0 15px;
+
+    font-size: 21px;
+}
+
+h2 {
+    margin-top: 12px;
+
+    font-size: 16px;
+}
+
+.status {
+    padding: 10px;
+
+    margin-bottom: 12px;
+
+    background: #ffffff;
+
+    border-radius: 7px;
+
+    font-size: 13px;
+
+    border: 1px solid #ddd;
+}
+
+button {
+    width: 100%;
+
+    padding: 10px;
+
+    margin-top: 8px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+button:disabled {
+    opacity: 0.5;
+
+    cursor: not-allowed;
+}
+
+.primary {
+    background: #2463eb;
+
+    color: white;
+}
+
+.secondary {
+    background: #e8eaf0;
+
+    color: #222;
+}
+
+.send {
+    background: #168a4a;
+
+    color: white;
+}
+
+.danger {
+    background: #d64545;
+
+    color: white;
+}
+
+label {
+    display: block;
+
+    margin-top: 9px;
+
+    margin-bottom: 4px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+input {
+    width: 100%;
+
+    padding: 9px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 6px;
+
+    outline: none;
+}
+
+input:focus {
+    border-color: #2463eb;
+}
+
+.stats {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 12px;
+}
+
+.stats div {
+    flex: 1;
+
+    background: white;
+
+    border: 1px solid #ddd;
+
+    border-radius: 7px;
+
+    padding: 10px;
+
+    text-align: center;
+}
+
+.stats span {
+    display: block;
+
+    font-size: 20px;
+
+    font-weight: bold;
+}
+
+.stats small {
+    color: #666;
+}
+
+hr {
+    margin: 15px 0;
+
+    border: 0;
+
+    border-top: 1px solid #ddd;
+}
+
+.candidate {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+
+    background: white;
+
+    border: 1px solid #ddd;
+
+    border-radius: 6px;
+
+    padding: 8px;
+
+    margin-top: 6px;
+}
+
+.candidate strong {
+    font-size: 13px;
+}
+
+.candidate span {
+    font-size: 12px;
+}
+
+.candidate small {
+    font-size: 11px;
+
+    color: #168a4a;
+}
+
+#results {
+    margin-top: 12px;
+
+    max-height: 300px;
+
+    overflow-y: auto;
+
+    font-size: 12px;
+}
+
+.error-text {
+    white-space: pre-wrap;
+
+    word-break: break-word;
+
+    font-family: monospace;
+
+    color: #c0392b;
+}
+
+.diagnostic-box {
+    margin-top: 8px;
+
+    padding: 8px;
+
+    background: #fff;
+
+    border: 1px solid #ddd;
+
+    border-radius: 6px;
+
+    font-family: monospace;
+
+    font-size: 11px;
+
+    white-space: pre-wrap;
+
+    word-break: break-word;
+
+    max-height: 220px;
+
+    overflow-y: auto;
+}
+
+.hint-text {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #666;
+
+    font-size: 11px;
+}

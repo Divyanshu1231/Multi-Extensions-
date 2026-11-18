@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CSV → DoubleTick</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>CSV → WhatsApp</h1>
+      <div class="sub">Location-wise DoubleTick bulk sender</div>
+    </div>
+    <button id="settingsBtn" class="gear">⚙</button>
+  </header>
+
+  <main id="main">
+    <div class="upload">
+      <div class="uploadTitle">📄 Upload Candidate CSV</div>
+      <input id="csvFile" type="file" accept=".csv,text/csv">
+      <small id="fileName">Choose a .csv file</small>
+    </div>
+
+    <div id="mapping" class="card" hidden>
+      <div class="mappingTitle">Detected columns</div>
+      <div id="mappingText"></div>
+    </div>
+
+    <label>Location / State</label>
+    <div class="stateBox">
+      <div class="stateTop">
+        <span id="stateCount">0 selected</span>
+        <div>
+          <button id="selectAll" class="small">All</button>
+          <button id="clearAll" class="small">Clear</button>
+        </div>
+      </div>
+      <div id="states" class="states"></div>
+    </div>
+
+    <label for="template">DoubleTick Template Name</label>
+    <input id="template" placeholder="e.g. candidate_followup">
+
+    <div class="summary">
+      <div><b id="total">0</b><span>Total</span></div>
+      <div><b id="matched">0</b><span>Matched</span></div>
+      <div><b id="sent">0</b><span>Sent</span></div>
+      <div><b id="failed">0</b><span>Failed</span></div>
+    </div>
+
+    <button id="send" class="send" disabled>Send WhatsApp to Selected States</button>
+    <div class="progress"><div id="bar"></div></div>
+    <div id="status" class="status">Upload CSV to begin.</div>
+
+    <div class="tableWrap">
+      <table>
+        <thead><tr><th>Name</th><th>State</th><th>Phone</th><th>Status</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <section id="settings" hidden>
+    <h2>Settings</h2>
+
+    <label>DoubleTick Proxy URL</label>
+    <input id="proxyUrl">
+
+    <label>DoubleTick Proxy Route</label>
+    <input id="proxyPath">
+
+    <label>Proxy Secret</label>
+    <input id="proxySecret" type="password" placeholder="Enter Proxy Secret">
+
+    <label>DoubleTick Sender WhatsApp Number</label>
+    <input id="senderNumber" placeholder="+919999999999">
+
+    <label>Template Language</label>
+    <input id="language" value="en" placeholder="en">
+
+    <label>CSV Name Column</label>
+    <input id="nameColumn" placeholder="Name / Candidate Name">
+
+    <label>CSV Phone Column</label>
+    <input id="phoneColumn" placeholder="Phone / Mobile / Contact">
+
+    <label>CSV State Column</label>
+    <input id="stateColumn" placeholder="State / Location">
+
+    <button id="save" class="primary">Save Settings</button>
+    <button id="back" class="secondary">Back</button>
+    <div id="saveStatus" class="status"></div>
+  </section>
+</div>
+<script src="config.js"></script>
+<script src="auth.js"></script>
+</body>
+</html>

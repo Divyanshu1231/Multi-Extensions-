@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <title>Shine Recruiter Tool</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Shine Recruiter</h1>
+
+    <div class="status" id="status">
+        Ready
+    </div>
+
+    <button id="scrapeBtn" class="primary">
+        Scrape Current Page
+    </button>
+
+    <div class="stats">
+
+        <div>
+            <span id="candidateCount">0</span>
+            <small>Candidates</small>
+        </div>
+
+        <div>
+            <span id="phoneCount">0</span>
+            <small>Phones</small>
+        </div>
+
+    </div>
+
+    <hr>
+
+    <h2>DoubleTick</h2>
+
+    <small class="hint-text">
+        DoubleTick connection is pre-configured.
+    </small>
+
+    <label>Template Name</label>
+    <input type="text" id="templateName" placeholder="your_template_name">
+
+    <button id="saveSettingsBtn">
+        Save DoubleTick Settings
+    </button>
+
+    <button
+        id="testConnectionBtn"
+        class="secondary"
+    >
+        Test Template Send (1 Candidate)
+    </button>
+
+    <small class="hint-text">
+        Sends one real template message to the first scraped
+        candidate with a phone number. This IS a live send, not
+        a mock connection check — use it before "Send Template"
+        to confirm your key/template/sender actually work.
+    </small>
+
+    <button
+        id="previewBtn"
+        class="secondary"
+    >
+        Preview Candidates
+    </button>
+
+    <button
+        id="exportCsvBtn"
+        class="secondary"
+    >
+        Export CSV
+    </button>
+
+    <button
+        id="sendBtn"
+        class="send"
+    >
+        Send Template
+    </button>
+
+    <button
+        id="clearBtn"
+        class="danger"
+    >
+        Clear Data
+    </button>
+
+    <div id="results"></div>
+
+</div>
+
+<script src="auth.js"></script>
+
+</body>
+</html>

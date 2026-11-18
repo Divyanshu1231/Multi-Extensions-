@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Shine Candidate Scraper + Airtable Matcher",
+  "version": "2.3.0",
+  "description": "Matches Shine candidate names against an uploaded Airtable CSV first, skips matched profiles, and extracts contact details only from unmatched profiles.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "tabs",
+    "storage",
+    "downloads"
+  ],
+  "host_permissions": [
+    "https://www.shine.com/*",
+    "https://shine.com/*",
+    "https://recruiter.shine.com/*",
+    "https://central-extension-platform-api.onrender.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.shine.com/*",
+        "https://shine.com/*",
+        "https://recruiter.shine.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
